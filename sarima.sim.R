@@ -1,5 +1,3 @@
-setwd("/media/romulo/Windows/Agenda/UFPR/Estatística/Laboratórios/codigo")
-
 sarima.sim = function(n = 1,
                       ar = NULL,
                       sar = NULL,
@@ -10,34 +8,6 @@ sarima.sim = function(n = 1,
                       s = 1,
                       sigma2 = 1,
                       delta = 0){
-
-# defaults
-#n = 1
-#ar = NULL
-#sar = NULL
-#ma = NULL
-#sma = NULL
-#D = 0
-#d = 0
-#s = 1
-#sigma2 = 1
-#delta = 0
-
-# entradas
-#n = 60
-#ar = c(-0.2962)
-#ar = c(-0.9)
-#sar = c(0.82,0.26)
-#sar = c(0.82)
-#ma = c(0.76,0.49)
-#ma = c(0.2)
-#sma = c(-1.9306,1.3063,-0.2875)
-#sma = c(-0.2875)
-#D = 3
-#d = 1
-#s = 4
-#sigma2 = 160
-#delta = 300
 
 # Transformação para formato de lista dos parâmetros ar, sar, ma e sma
 l = list(c(1,0))
@@ -213,25 +183,3 @@ names(out) = c("serie","error")
 
 return(out)
 }
-
-
-sim = sarima.sim(n = 120,
-                 ar = -0.2,
-                 ma = 0.8,
-                 sma = c(-1.93),
-                 sar = c(0.2),
-                 D = ,
-                 s = 4,
-                 sigma2 = 25
-                 #delta = 0
-                 )
-plot(sim$serie)
-#lines(1:n,sim$serie)
-plot(sim$error)
-#lines(1:n,sim$error)
-
-# Ajuste de verificação
-fit = arima(sim$serie,order = c(0,0,0),seasonal = list(order=c(0,0,0)));fit
-#fit = arima(serie,order = c(1,0,0));fit
-acf(sim$serie)
-pacf(sim$serie)
